@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+notebook_resources/
+public/data/all-birds-wav/
+public/data/test-birds-from-kasios-cleaned/
+dist/
+npm-debug.log
+yarn-error.log
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
