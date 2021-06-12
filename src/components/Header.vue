@@ -5,16 +5,19 @@
         <img src="/data/logo.png" id="logoImg"/>
         <h3 style="text-align:left; display: inline-block">Audio Explorer</h3>
       </a>
-
-      <div class="float-right">
-        <img id= "aboutImg1" src="/data/icons/about.png" alt="About this project" class="float-right" @click="aboutPage">
-        <h6>ENG</h6>
-      </div>
-      <div class="float-right" style="margin-right: 10px">
-        <img id= "aboutImg2" src="/data/icons/about.png" alt="About this project" class="float-right" @click="aboutPage2">
-        <h6>中文</h6>
-      </div>
-
+        <div  class="float-right duiqi">
+          <div class="float-right">
+            <img id= "aboutImg1" src="/data/icons/about.png" alt="About this project" class="float-right" @click="aboutPage">
+            <h6>ENG</h6>
+          </div>
+          <div class="float-right" style="margin-right: 10px">
+            <img id= "aboutImg2" src="/data/icons/about.png" alt="About this project" class="float-right" @click="aboutPage2">
+            <h6>中文</h6>
+          </div>
+            <div class="float-right" style="position: relative;top:5px;margin-right: 5px;">
+                <button  @click="exit()">exit</button>
+            </div>
+        </div>
       <div class="btn-group" role="group" id="toggle" aria-label="Controls">
         <button type="button" class="btn btn-light btn-sm"
                 @click="toggleView('Main View')"
@@ -44,6 +47,9 @@
       }
     },
     methods: {
+        exit(){
+            speciesEventBus.$emit('mainChange', 0);
+        },
       toggleView(view) {
         speciesEventBus.$emit('viewChanged', view);
         this.currentView = view;
@@ -211,6 +217,11 @@
     background-color: whitesmoke;
     z-index: 9000;
   }
+  .duiqi{
+      justify-content: center;
+
+      align-items: center;
+  }
   #logoImg {
     position: relative;
     height:45px;
@@ -223,6 +234,7 @@
     margin-right: 30px;
     margin-top: 2px;
   }
+
   .faded {
     opacity: 0.6;
   }

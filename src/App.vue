@@ -1,5 +1,19 @@
 <template>
-  <div id="app">
+
+  <div v-if="showMain==0" >
+    <div class="background">
+      <img width="100%" height="100%" alt="" src="require(`../assets/bg.jpg`)"/>
+    </div>
+    <div class="main">
+      <p class="title">Grand Challenge</p>
+      <button class="margin orange" @click="gomc1()">mc1</button>
+
+      <button class="margin orange" @click="gomc2()">mc2</button>
+    </div>
+
+  </div>
+
+  <div id="app" v-else-if="showMain==1">
     <transition name="fade-down" appear>
       <app-header></app-header>
     </transition>
@@ -13,14 +27,18 @@
         <div class="col-sm-2">
             <app-list :contains="'Species'" :items="speciesNames" :selected="selectedSpecies"></app-list>
         </div>
+
+        <!--方形图片-->
+        <div class="col-md-4 flex-fixed-width-item" id="audioContainer">
+          <app-audio-container :contains="'Kasios'" :representative-data="kasiosLocations"></app-audio-container>
+          <app-audio-container :contains="'Species'" :representativeData="representativeSpecies"></app-audio-container>
+        </div>
           <div class="col-md-5">
             <app-map-container :kasiosLocations="kasiosLocations" :dataNest="dataNest"
                                :selected-species="selectedSpecies"></app-map-container>
           </div>
-          <div class="col-md-4 flex-fixed-width-item" id="audioContainer">
-            <app-audio-container :contains="'Kasios'" :representative-data="kasiosLocations"></app-audio-container>
-            <app-audio-container :contains="'Species'" :representativeData="representativeSpecies"></app-audio-container>
-          </div>
+
+
       </div>
 
       <!-- Month/Year View -->
@@ -45,6 +63,9 @@
       </div>
     </transition>
     </div>
+  </div>
+  <div v-else>
+
   </div>
 </template>
 
@@ -74,6 +95,8 @@
     },
     data: function () {
         return {
+            showMain:0,
+            // imgSrc: require('../assets/bg.jpg'),
           allBirds: null,
           testBirds: null,
           rawPredictions: null,
@@ -81,12 +104,21 @@
           selectedSpecies: ""
         };
     },
+
       //读取所有鸟类数据与预测数据
     mounted: async function() {
       // Extract data from CSVs using D3 and store them in data variables
       this.allBirds = await d3.csv("/data/AllBirdsv4-refined.csv");
       this.testBirds = await d3.csv("/data/test-birds-location.csv");
       this.rawPredictions = await d3.csv("/data/aggregate_predictions.csv")
+    },
+    methods:{
+        gomc1(){
+            this.showMain=1;
+        },
+        gomc2(){
+            // this.showMain=2;
+        },
     },
     computed: {
       // Compute an array of kasios recording locations for the map to render markers with
@@ -106,6 +138,7 @@
           return locations;
         }
       },
+
       // Main data object (nested by year) used for primary heatMap
       dataNest() {
         // Prevents null/undefined errors
@@ -120,7 +153,7 @@
           d.X = +d.X;
           d.Y = +d.Y;
           d.Species = d.English_name;
-        })
+        });
         // Nest data first by species, then by year (asc.)
         var nestedData = d3.nest(this.allBirds)
           .key(function (d) {
@@ -148,16 +181,16 @@
           .key(function (d) {
             return d.Month
           }).sortKeys(d3.ascending)
-          .entries(this.allBirds)
+          .entries(this.allBirds);
 
         return nestedData;
       },
       // Array of all species names for species list
       speciesNames() {
-        var speciesNames = []
+        var speciesNames = [];
         this.dataNest.forEach(function (d) {
           speciesNames.push(d.key);
-        })
+        });
         return speciesNames;
       },
       // Array of all Kasios Furniture file names for Kasios list
@@ -216,15 +249,19 @@
         speciesEventBus.$emit('highlightPredictions', this.predictions[index].values[0]);
       });
 
+        speciesEventBus.$on('mainChange', (view) => {
+            this.showMain = view;
+        });
+
       speciesEventBus.$on('viewChanged', (view) => {
         this.currentView = view;
         if(view === "Main View")
           this.selectedSpecies = '';
-      })
+      });
 
       speciesEventBus.$on('itemWasSelected', (species) => {
         this.selectedSpecies = species.value;
-      })
+      });
 
       speciesEventBus.$on('itemWasDeselected', () => {
           this.selectedSpecies = '';
@@ -245,6 +282,59 @@
     height: 100vh;
     /* overflow: hidden; */
   }
+  .manage_tip{
+    position: absolute;
+    width: 100%;
+    top: -100px;
+    left: 0;
+    p{
+      font-size: 34px;
+      color: #fff;
+    }
+  }
+  .main{
+    text-align: center;
+    background-color: #fff;
+    border-radius: 20px;
+    width: 1500px;
+    height: 350px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-family:Arial,Helvetica,sans-serif;font-size:100%;
+
+  }
+  .title{
+    font-size: 80px;
+  }
+  .background {
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;  /**宽高100%是为了图片铺满屏幕 */
+    z-index:-1;
+    position: absolute;
+  }
+
+  button {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 35px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+  }
+  button.orange {
+    color: white;
+    border: 1px solid #FB8F3D;
+    background:#FB8F3D;
+  }
+  .button1{
+    margin: 10px;
+  }
   .flex-fixed-width-item {
     flex: 0 0 506.39px;
   }
@@ -252,7 +342,11 @@
   .leaflet-bottom {
     display: none;
   }
-
+  .margin{
+    width: 100px;
+    margin: 8px;
+    padding: 15px;
+  }
   .month .leaflet-left {
     display: none;
   }
