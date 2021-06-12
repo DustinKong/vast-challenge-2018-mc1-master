@@ -2,13 +2,15 @@
 
   <div v-if="showMain==0" >
     <div class="background">
-      <img width="100%" height="100%" alt="" src="require(`../assets/bg.jpg`)"/>
+      <img width="100%" height="100%" alt="" src="./assets/bg.jpg"  />
     </div>
     <div class="main">
       <p class="title">Grand Challenge</p>
-      <button class="margin orange" @click="gomc1()">mc1</button>
+      <button class="margin buttonOrange" @click="gomc1()">Mini Challenge1</button>
 
-      <button class="margin orange" @click="gomc2()">mc2</button>
+      <button class="margin buttonOrange" @click="gomc2()">Mini Challenge2</button>
+        <p style="color: white">陈旭东 孔启超 吴超 徐张祎 杨镐</p>
+        <p style="color: white;font-size: 10px">(按姓氏字母排序)</p>
     </div>
 
   </div>
@@ -294,10 +296,8 @@
   }
   .main{
     text-align: center;
-    background-color: #fff;
+    /*background-color: #fff;*/
     border-radius: 20px;
-    width: 1500px;
-    height: 350px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -306,7 +306,8 @@
 
   }
   .title{
-    font-size: 80px;
+    font-size: 100px;
+    color: white;
   }
   .background {
     left: 0;
@@ -317,18 +318,14 @@
     position: absolute;
   }
 
-  button {
-    color: #444444;
-    background: #F3F3F3;
-    border: 1px #DADADA solid;
-    padding: 5px 10px;
-    border-radius: 35px;
-    font-weight: bold;
-    font-size: 9pt;
-    outline: none;
-  }
-  button.orange {
-    color: white;
+    .buttonOrange {
+
+      padding: 5px 10px;
+      border-radius: 35px;
+      font-weight: bold;
+      /*font-size: 9pt;*/
+        color: white;
+      width: 200px;
     border: 1px solid #FB8F3D;
     background:#FB8F3D;
   }
@@ -343,8 +340,7 @@
     display: none;
   }
   .margin{
-    width: 100px;
-    margin: 8px;
+    margin: 10px;
     padding: 15px;
   }
   .month .leaflet-left {

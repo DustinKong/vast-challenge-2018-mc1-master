@@ -44,7 +44,7 @@
       map.touchZoom.disable();
       map.doubleClickZoom.disable();
       map.scrollWheelZoom.disable();
-      
+
       // Regular heatmap layer:
       // eslint-disable-next-line
       let heatmap = L.heatLayer(this.$data.heatmapData, {
@@ -75,7 +75,7 @@
     methods: {
       drawHeatmap() {
         // Reset heatmap data
-       if(this.heatmapData != []) {
+       if(this.heatmapData !== []) {
          this.heatmapData = [];
          this.heatmap.setLatLngs(this.heatmapData);
          this.numRecords = 0;
@@ -99,7 +99,7 @@
       empty: function() {
           if(this.numRecords === 0)
             return true;
-          else 
+          else
             return false;
         }
     }

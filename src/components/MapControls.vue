@@ -8,7 +8,7 @@
     <h6 v-else>Year displayed: {{ pointSlider.value }}
           <span style="font-size : 12px"> ({{ numRecords }} record<span v-if="numRecords != 1">s</span>)</span>
     </h6>
-    
+
     <!-- Buttons -->
     <div class="btn-group" role="group" id="toggle" aria-label="Controls">
         <button type="button" class="btn btn-light btn-sm"
@@ -17,18 +17,18 @@
         </button>
         <button type="button" class="btn btn-light btn-sm"
                 @click="toggleSlider"
-                :class="{disabled : selectedSpecies === ''}">Toggle {{ toggleText }} 
+                :class="{disabled : selectedSpecies === ''}">Toggle {{ toggleText }}
         </button>
     </div>
 
     <!-- Sliders -->
     <vue-slider ref="rangeSlider" class="slider"
-                v-if="toggleText === 'point'" 
-                v-bind="rangeSlider" 
+                v-if="toggleText === 'point'"
+                v-bind="rangeSlider"
                 v-model="rangeSlider.value"
     ></vue-slider>
-    <vue-slider ref="pointSlider" class="slider" 
-                v-else v-bind="pointSlider" 
+    <vue-slider ref="pointSlider" class="slider"
+                v-else v-bind="pointSlider"
                 v-model="pointSlider.value"
     ></vue-slider>
 
@@ -40,8 +40,8 @@
     </transition>
     <transition name="history" mode="out-in">
         <vue-slider ref="historySlider" class="slider"
-                    v-if="historyText === 'Hide'" 
-                    v-bind="historySlider" 
+                    v-if="historyText === 'Hide'"
+                    v-bind="historySlider"
                     v-model="historySlider.value"
         ></vue-slider>
     </transition>
@@ -213,7 +213,7 @@
           }
           else { // Disable history range slider
             this.historyText = "Show";
-            // Emit event to indicate history heatmap should disappear 
+            // Emit event to indicate history heatmap should disappear
             speciesEventBus.$emit('toggleHistory', false);
             if(this.toggleText === "range") {
               this.toggleText = "point";

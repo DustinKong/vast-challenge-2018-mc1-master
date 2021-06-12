@@ -15,7 +15,7 @@
             <h6>中文</h6>
           </div>
             <div class="float-right" style="position: relative;top:5px;margin-right: 5px;">
-                <button  @click="exit()">exit</button>
+                <button style="border-radius: 20px" @click="exit()">exit</button>
             </div>
         </div>
       <div class="btn-group" role="group" id="toggle" aria-label="Controls">
