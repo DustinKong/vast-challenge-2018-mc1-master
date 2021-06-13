@@ -9,9 +9,6 @@ Audio Explorer 是一款数据可视化工具，来帮助研究人员分析特�
            他们坚称这些文件证明了玫瑰冠蓝鸟鹭种群状况良好。 提供大量带有准确识别信息的记录鸟类叫声，
            我们的目标是检查 Kasios 声明的有效性，并表征保护区内所有物种随着时间的推移的模式。
 
-## Getting Started 开始
-
-These instructions will get you a copy of the project up and running on your local machine for development purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites 依赖项
 
