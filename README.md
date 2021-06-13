@@ -9,15 +9,15 @@ Audio Explorer 是一款数据可视化工具，来帮助研究人员分析特�
            他们坚称这些文件证明了玫瑰冠蓝鸟鹭种群状况良好。 提供大量带有准确识别信息的记录鸟类叫声，
            我们的目标是检查 Kasios 声明的有效性，并表征保护区内所有物种随着时间的推移的模式。
 
-## Getting Started
+## Getting Started 开始
 
 These instructions will get you a copy of the project up and running on your local machine for development purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Prerequisites 依赖项
 
 Install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com) (if haven't already)
 
-### Installing
+### Installing 安装
 
 Clone the repository. Open terminal/commmand prompt and `cd` to root directory of the repo:
 ```
@@ -28,9 +28,9 @@ Type `yarn install` to install dependencies:
 ```
 yarn install
 ```
-## Deployment
+## Deployment 运行
 
-To view a development build of Audio Explorer, run:
+To view a development build of Audio Explorer, run: 
 ```
 yarn serve
 ```
@@ -53,6 +53,7 @@ The web app can then be viewed at http://localhost:8080/
 * [vue-sweetalert2](https://github.com/avil13/vue-sweetalert2) - Vue wrapper for [SweetAlert2](https://sweetalert2.github.io/)
 
 ## Authors
+孔启超 杨镐 二次开发
 
 **Colin Scruggs** - [Github](https://github.com/colinscruggs)
 
@@ -61,9 +62,3 @@ The web app can then be viewed at http://localhost:8080/
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-* [Dr. Chad Stolper](https://github.com/chadstolper/) for guidance throughout SCOPE
-* [SCOPE Summer Research Program](https://www.southwestern.edu/scope/) at Southwestern Univeristy
-* [Dr. Jaron Collis](https://github.com/jaron) and his deep learning [audio classification experiments](https://github.com/jaron/deep-listening)
