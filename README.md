@@ -1,5 +1,5 @@
 
-# Audio Explorer 
+# Audio Explorer 鸟类音频系统
 
 
 Audio Explorer 是一款数据可视化工具，来帮助研究人员分析特定位置的录音
@@ -10,17 +10,18 @@ Audio Explorer 是一款数据可视化工具，来帮助研究人员分析特�
            我们的目标是检查 Kasios 声明的有效性，并表征保护区内所有物种随着时间的推移的模式。
 
 
-### Prerequisites 依赖项
+### Prerequisites 依赖环境 必须有node.js和Yarn环境才可以运行
 
 Install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com) (if haven't already)
 
-### Installing 安装
+### Installing 安装 在依赖项的前提下进行项目运行
 
 Clone the repository. Open terminal/commmand prompt and `cd` to root directory of the repo:
+#### 进入项目目录
 ```
-cd [repo directory]
+cd [repo directory] 
 ```
-
+#### 安装依赖项
 Type `yarn install` to install dependencies:
 ```
 yarn install
@@ -28,17 +29,19 @@ yarn install
 ## Deployment 运行
 
 To view a development build of Audio Explorer, run: 
+#### 本地运行
 ```
 yarn serve
 ```
 
 Alternatively, to create a production build:
+#### 打包发布版本
 ```
 yarn build
 ```
-
+### 本地运行后网页打开
 The web app can then be viewed at http://localhost:8080/
-## Built With
+## Built With 我们的项目使用以下框架与包
 
 * [Vue.js](https://vuejs.org/) - Front-end framework
 * [Vue CLI](https://cli.vuejs.org/) - Standard tooling for Vue.js development
@@ -49,9 +52,11 @@ The web app can then be viewed at http://localhost:8080/
 * [vue-slider-component](https://nightcatsama.github.io/vue-slider-component/example/) - Vue slider components
 * [vue-sweetalert2](https://github.com/avil13/vue-sweetalert2) - Vue wrapper for [SweetAlert2](https://sweetalert2.github.io/)
 
-## Authors
-孔启超 杨镐 二次开发
+## Authors 二次开发作者
 
+### 孔启超 杨镐 二次开发
+
+## 原作者
 **Colin Scruggs** - [Github](https://github.com/colinscruggs)
 
 **Cameron Henkel** - [Github](https://github.com/cameron-henkel)
