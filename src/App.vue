@@ -120,6 +120,7 @@
         },
         gomc2(){
             // this.showMain=2;
+            window.open("http://119.3.227.48/html/",'_self');
         },
     },
     computed: {
