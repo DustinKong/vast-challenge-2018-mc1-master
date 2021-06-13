@@ -2,22 +2,12 @@
 # Audio Explorer 
 
 
-Audio Explorer is a data visualization tool created by Colin Scruggs and Cameron Henkel of Southwestern University for the [2018 VAST Challenge](http://www.vacommunity.org/VAST+Challenge+2018). Audio Explorer was the recipient of the "Excellent Comprehensive Submission" Award from the VAST committee for 2018's Mini Challenge 1.
-
-![logo](public/data/logo_github.png)
-
-This single-page web app was developed as part of our submission to [Mini-Challenge 1](http://www.vacommunity.org/VAST+Challenge+2018+MC1). The main objectives of the mini-challenge were to:  
-1) Characterize patterns of all bird species found in the Boonsong Lekagal Wildlife Preserve over time, and   
-2) Determine whether or not the set of bird calls provided by the Kasios Furniture company supports their claim that the Rose-Crested Blue Pipit is "happily living and nesting in the Preserve."  
-
-Audio Explorer was built to synthesize the results of our machine-learning experiments and assist us in examining the geospatial data associated with the large dataset of bird calls provided in Mini-Challenge 1. 
-
-For a closer look at how we tackled machine learning, `Bird Classification.ipynb` is included.  
-*(NOTE: the mini-challenge audio data is required to run this Jupyterlab notebook, and is available for download from the links above)*
-
-## Live Demo
-
-A live demo of Audio Explorer can be found [here](https://chadstolper.github.io/vast-challenge-2018-mc1/).
+Audio Explorer 是一款数据可视化工具，来帮助研究人员分析特定位置的录音
+           并可以随着时间的推移并验证其真实性。
+挑战：Kasios Furniture（一家具公司）被指控在其工厂中使用违禁物质，并将废料倾倒在附近野生动植物保护区的东北地区。
+           鸟类学家说，这直接导致了当地玫瑰凤冠蓝鸟的数量减少。 Kasios 驳斥了这一说法，并提供了 15 个记录在保护区内的音频文件，
+           他们坚称这些文件证明了玫瑰冠蓝鸟鹭种群状况良好。 提供大量带有准确识别信息的记录鸟类叫声，
+           我们的目标是检查 Kasios 声明的有效性，并表征保护区内所有物种随着时间的推移的模式。
 
 ## Getting Started
 
